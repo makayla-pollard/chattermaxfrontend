@@ -29,6 +29,7 @@ function App() {
           <Route path='/' element={<Register/>}/>
           <Route path="/login" element={user ? <Navigate replace to={`/my-profile/${user.username}`}/> : <Login/>}/>
           <Route path="/my-profile/:id" element={user? <Profile/>: <Navigate replace to={"/login"}/> } />
+          <Route path="/profile/:id" element={<PublicProfile/>}/>
         </Routes>
       </BrowserRouter>
     </div>

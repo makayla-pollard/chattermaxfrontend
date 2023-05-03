@@ -11,10 +11,6 @@ function Login(){
     const current = new Date();
     const nextDay = new Date();
 
-    // function logout(){
-    //     cookies.remove('jwt');
-    // }
-
     async function loginuser(event){
         event.preventDefault();
         const response = await fetch('http://ec2-18-116-21-237.us-east-2.compute.amazonaws.com:4000/graphql', {
