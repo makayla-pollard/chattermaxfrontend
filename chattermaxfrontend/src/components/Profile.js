@@ -2,6 +2,7 @@ import Cookies from 'universal-cookie';
 import jwt from 'jwt-decode';
 import React, {useState, useEffect, Suspense} from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import '../style/ProfileStyle.css'
 const LoggedInUserProfile = React.lazy(() => import ('./LoggedInUserProfile'));
 
 

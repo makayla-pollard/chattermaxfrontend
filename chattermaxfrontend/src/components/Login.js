@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import {Link, useNavigate } from 'react-router-dom';
 import Cookies from 'universal-cookie';
+import '../style/LoginStyle.css'
 import jwt from 'jwt-decode';
 
 function Login(){
@@ -51,25 +52,25 @@ function Login(){
 
         
     return(
-        <div>
+        <div className='loginContainer'>
             <h1>Login</h1>
 
-        <div>
-            <form onSubmit={(e) => loginuser(e)}>
-                <label>Username: </label>
-                <br/>
-                <input value= {username} onChange={(e) => setUsername(e.target.value)} type="text"></input>
-                <br/>
-                <label >Password: </label>
-                <br/>
-                <input type="password" value={password} onChange={(e) =>setPassword(e.target.value)}></input>
-                <br/>
-                <input type="submit" value="Login"/>
-            </form>
-        </div>
-        <div>
-            <p>Don't have an account? <Link to="/">register here.</Link></p>
-        </div>
+            <div className='LoginForm'>
+                <form onSubmit={(e) => loginuser(e)}>
+                    <label>Username: </label>
+                    <br/>
+                    <input value= {username} onChange={(e) => setUsername(e.target.value)} type="text"></input>
+                    <br/>
+                    <label >Password: </label>
+                    <br/>
+                    <input type="password" value={password} onChange={(e) =>setPassword(e.target.value)}></input>
+                    <br/>
+                    <input type="submit" value="Login"/>
+                </form>
+            </div>
+            <div>
+                <p>Don't have an account? <Link to="/">register here.</Link></p>
+            </div>
         </div> 
     )
 }
