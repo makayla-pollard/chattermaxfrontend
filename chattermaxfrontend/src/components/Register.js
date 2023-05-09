@@ -6,7 +6,7 @@ function Register(){
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    
+    const [confirm, setConfirm] = useState("")
     async function createUser(e){
         e.preventDefault();
         
@@ -18,7 +18,7 @@ function Register(){
             body: JSON.stringify ({
                 query: `
                 mutation {
-                    createUser(userInput: {username: "${username}", email: "${email}",password: "${password}"}) {
+                    createUser(userInput: {username: "${username}", email: "${email}",password: "${password}", passConf: "${confirm}"}) {
                         _id
                         username
                     }
@@ -61,6 +61,10 @@ function Register(){
                     <label>Password: </label>
                     <br/>
                     <input type="password" placeholder="Password..." onChange={(e) => setPassword(e.target.value)}/>
+                    <br/>
+                    <label>Confirm Password: </label>
+                    <br/>
+                    <input type="password" placeholder="Confirm Password..." onChange={(e) => setConfirm(e.target.value)}/>
                 </div>
                 <input type="submit" value="Register"/>
             </form>

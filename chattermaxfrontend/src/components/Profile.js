@@ -1,11 +1,12 @@
 import Cookies from 'universal-cookie';
 import jwt from 'jwt-decode';
 import React, {useState, useEffect, Suspense} from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 const LoggedInUserProfile = React.lazy(() => import ('./LoggedInUserProfile'));
 
 
 function Profile(){
+    let navigate = useNavigate();
     const {id} = useParams();
     const cookies = new Cookies();
     const [user, setUser] = useState(null);
@@ -19,13 +20,15 @@ function Profile(){
         
     }, [])
 
+    function goToEdit(){
+        navigate("/edit-profile")
+    }
 
     return(
         <div>
             <Suspense fallback = {<div>Loading.....</div>}>
                 <LoggedInUserProfile userInfo = {user} id = {id} />
             </Suspense>
-            
         </div>
     )
 }
