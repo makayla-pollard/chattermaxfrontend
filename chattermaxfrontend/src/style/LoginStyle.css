@@ -1,6 +1,6 @@
 .LoginForm{
-    border: 5px solid #A152D1;
-    background-color: #d889dc75;
+    border: 5px solid #703993af;
+    background-color: #9d7dae;
     border-radius: 20px;
     padding: 30px;
     margin: 40px;
@@ -10,11 +10,10 @@
 }
 
 .loginContainer{
-    border: 5px solid #A152D1;
-    background-color: #D889DC;
+    border: 5px solid #703993af;
     border-radius: 20px;
     padding: 50px;
-    margin: 40px;
+    margin: 50px;
     width: 700px;
     text-align: center;
 }
