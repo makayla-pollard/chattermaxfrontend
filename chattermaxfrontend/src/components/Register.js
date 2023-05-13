@@ -7,6 +7,8 @@ function Register(){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirm, setConfirm] = useState("")
+
+    
     async function createUser(e){
         e.preventDefault();
         
@@ -35,6 +37,21 @@ function Register(){
                 alert(data.errors[0].message)
             }
             if(data.data.createUser != null){
+                fetch('http://ec2-18-116-21-237.us-east-2.compute.amazonaws.com:4000/createUser', {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        username: data.data.createUser.username,
+                        secret: data.data.createUser._id
+                    })
+                }).then((res) => res.json())
+                .then(data => {
+                    console.log(data)
+                }).catch(err => {
+                    console.log(err)
+                });
                 alert("User Created")
                 navigate('/login');
             }
