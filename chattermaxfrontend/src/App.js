@@ -9,6 +9,8 @@ import Profile from './components/Profile';
 import PublicProfile from './components/PublicProfile';
 import EditProfile from './components/EditProfile';
 import UserSearch from './components/UserSearch';
+import Chat from './components/Chat';
+
 function App() {
   const cookies = new Cookies();
   const [user, setUser] = useState(null);
@@ -33,6 +35,7 @@ function App() {
           <Route path="/profile/:id" element={<PublicProfile/>}/>
           <Route path='/edit-profile' element={user ? <EditProfile/> : <Navigate replace to={"/login"}/>}/>
           <Route path='/users' element={<UserSearch/>} />
+          <Route path="/chat" element={<Chat/>}/>
         </Routes>
       </BrowserRouter>
     </div>
