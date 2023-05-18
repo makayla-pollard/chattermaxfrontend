@@ -10,6 +10,8 @@ import PublicProfile from './components/PublicProfile';
 import EditProfile from './components/EditProfile';
 import UserSearch from './components/UserSearch';
 import Chat from './components/Chat';
+import NavBar from './components/NavBar'
+
 
 function App() {
   const cookies = new Cookies();
@@ -28,6 +30,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+      <NavBar user={user}/>
         <Routes>
           <Route path='/' element={<Register/>}/>
           <Route path="/login" element={user ? <Navigate replace to={`/my-profile/${user.username}`}/> : <Login/>}/>

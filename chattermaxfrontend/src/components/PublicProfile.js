@@ -1,14 +1,46 @@
 import { useParams } from "react-router-dom";
+import { useEffect, useState } from 'react';
 
 function PublicProfile(){
     const {id} = useParams();
+    const [user, setUser] = useState([]);
+    
+    async function getUser(){
+        const response = await fetch('http://ec2-18-116-21-237.us-east-2.compute.amazonaws.com:4000/graphql', {
+            method: 'POST',
+            headers: {
+                'Content-Type' : 'application/json',
+            },
+            body: JSON.stringify ({
+                query: `
+                    query {
+                        userByUsername(username: "${id}") {
+                            username
+                            email
+                            picture
+                        }
+                    }
+                `
+            })
+        }).then(res => {
+            return res.json();
+        }).then(data => {
+            setUser(data.data.userByUsername)
+            
+        }).catch(err => {
+            console.log(err);
+        });
+    }
 
-    //getUserbyUsername with ID
-    //Post public information
+    useEffect(() => {
+        getUser()
+    },[])
+
     
     return(
         <div>
-            <h1>{id}</h1>
+            <h1>{user.username}</h1>
+            <img src={user.picture} alt= "profile image"/> 
         </div>
     )
 }

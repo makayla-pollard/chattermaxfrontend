@@ -20,12 +20,15 @@ const Chat = () => {
         
         if(username != "" && secret !=""){
             return(
-                <ChatEngine
-                    height="100vh"
-                    projectID="d39321c3-ea7c-4c17-832d-693f16cadee6"
-                    userName={username}
-                    userSecret= {secret}
-                />
+                <div className="chat">
+                    <ChatEngine
+                        height="100vh"
+                        projectID="d39321c3-ea7c-4c17-832d-693f16cadee6"
+                        userName={username}
+                        userSecret= {secret}
+                    />
+                </div>
+                
             )
         }else{
             return(<></>)

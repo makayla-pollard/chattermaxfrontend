@@ -1,21 +1,65 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import '../style/NavBarStyle.css';
+import Cookies from 'universal-cookie';
+import jwt from 'jwt-decode';
+import './NavBar.css'
 
 const NavBar = ({user}) => {
     let navigate = useNavigate();
+    const cookies = new Cookies();
 
     function logout(){
         cookies.remove('jwt');
         window.location.reload(false);
     }
 
-    if(user != null){
+    if(user == null){
         return(
-            <header>
-
+            <header className="headerNav">
+                <div className="main">
+                    <div>
+                        Chattermax
+                    </div>
+                    <nav className='links'>
+                            <ul>
+                                <li>
+                                    <NavLink to="/">Register</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/login">Login</NavLink>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+            </header>
+        )
+    }else{
+        return(
+            <header className='headerNav'>
+                <div className="main">
+                    <div>
+                        Chattermax
+                    </div>
+                    <nav className="links">
+                        <ul>
+                            <li>
+                                <NavLink to="/users">User Search</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/chat">Chats</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to={`/my-profile/${user.username}`}>Profile</NavLink>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
             </header>
         )
     }
 
 
 }
+
+
+export default NavBar
