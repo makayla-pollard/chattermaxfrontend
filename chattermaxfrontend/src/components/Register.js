@@ -1,5 +1,7 @@
 import {useState} from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import "../style/RegisterSyle.css";
+
 
 function Register(){
     const navigate = useNavigate();
@@ -61,10 +63,11 @@ function Register(){
     }
 
     return (
+        <div className='registerContainer'>
         <div>
             <h1 className="header">Register</h1>
 
-        <div>
+        <div className='registerForm'>
             <form onSubmit={(e) => createUser(e)}>
                 <div align-items='left'>
                     <label>Username: </label>
@@ -90,6 +93,7 @@ function Register(){
             <div>
                 <p>Already have an account? <Link to="/login">login here.</Link></p>
             </div>
+        </div>
         </div>
     )
 }

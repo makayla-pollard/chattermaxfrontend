@@ -1,4 +1,4 @@
-.LoginForm{
+.registerForm{
     border: 5px solid #703993af;
     background-color: #9d7dae;
     border-radius: 20px;
@@ -9,10 +9,15 @@
     width: 500px;
 }
 
-.loginContainer{
+.registerContainer{
     /* border: 5px solid #703993af; */
     padding: 50px;
     margin: 5% 20%;
     width: 700px;
     text-align: center;
 }
+
+/* input{
+    padding: 5px;
+    margin: 5px;
+} */

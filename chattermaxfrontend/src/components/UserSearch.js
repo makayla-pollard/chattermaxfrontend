@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 import { useNavigate } from "react-router-dom";
-import './UserSearch.css'
+import "../style/UserSearchStyle.css";
+
 function UserSearch(){
     let navigate = useNavigate(); 
     const [users, setUsers] = useState([]);
@@ -50,7 +51,7 @@ function UserSearch(){
 
 
     return(
-        <div>
+        <div className='searchContainer'>
             <form>
                     <div>
                         <p>Search</p>

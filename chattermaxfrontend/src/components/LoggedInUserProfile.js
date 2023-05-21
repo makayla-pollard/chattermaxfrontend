@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react';
 import Cookies from 'universal-cookie';
-import './LoggedInUser.css'
+import "../style/ProfileStyle.css";
+
 
 function LoggedInUserProfile({userInfo, id}){
     const cookies = new Cookies();

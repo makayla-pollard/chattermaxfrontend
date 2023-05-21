@@ -2,7 +2,7 @@ import {ChatEngine} from 'react-chat-engine';
 import {useState, useEffect} from 'react';
 import Cookies from 'universal-cookie';
 import jwt from 'jwt-decode';
-import './Chat.css'
+import '../style/Chat.css'
 
 const Chat = () => {
     const [username, setUsername] = useState("");

@@ -1,7 +1,7 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import jwt from 'jwt-decode';
-import './NavBar.css'
+import '../style/NavBar.css'
 import icon from '../assets/bubbleheart.png';
 
 const NavBar = ({user}) => {

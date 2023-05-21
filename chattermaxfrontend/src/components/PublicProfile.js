@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from 'react';
-import "./PublicProfile.css"
+import "../style/PublicProfile.css"
 
 
 function PublicProfile(){
