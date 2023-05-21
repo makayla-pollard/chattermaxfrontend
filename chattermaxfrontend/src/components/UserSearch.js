@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
 import { useNavigate } from "react-router-dom";
-
+import './UserSearch.css'
 function UserSearch(){
     let navigate = useNavigate(); 
     const [users, setUsers] = useState([]);
@@ -62,10 +62,13 @@ function UserSearch(){
                 <div>
                     {
                         filteredUsers?.map((user) => (
-                            <div key={user._id} onClick={() => linkToProfile(user.username)}>
-                                <img src={user.picture} alt= "profile image"/> 
-                                <div>{user.username}</div>
+                            <div className="user">
+                                <div className="userBox" key={user._id} onClick={() => linkToProfile(user.username)}>
+                                    <img src={user.picture} alt= "profile image"/> 
+                                    <div>{user.username}</div>
+                                </div>
                             </div>
+                            
                         ))
                     }
                 </div>

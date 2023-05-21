@@ -1,0 +1,14 @@
+.public img{
+    border-radius: 50%;
+    height: 150px;
+}
+
+.public{
+    padding-left: 30px;
+    padding-top: 30px
+}
+
+.public h1{
+    text-align: center;
+    width: 150px;
+}

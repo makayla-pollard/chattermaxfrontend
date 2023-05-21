@@ -62,3 +62,12 @@ a:active {
     color:#00000088;
     cursor: pointer;
 }
+
+.main img{
+    height: 40px;
+}
+
+.title{
+    font-family: 'Lilita One', cursive;
+    font-size: 40px;
+}

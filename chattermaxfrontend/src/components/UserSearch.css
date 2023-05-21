@@ -1,0 +1,35 @@
+.userBox img{
+    border-radius: 50%;
+    height: 50px;
+    display: inline-block;
+}
+
+.userBox div{
+    display: inline-block;
+    text-align: center;
+    text-transform: uppercase;
+    position: relative;
+    left: 5px;
+    bottom: 20px;
+}
+
+.userBox{
+    padding: 10px;
+    width: 150px; 
+    margin-left: 30px;
+    -moz-box-shadow: 0 0 3px #a07140;
+    -webkit-box-shadow: 0 0 3px #715d43;
+    box-shadow: 0 0 3px #8f754f;
+    border-radius: 4px;
+    background-color: rgba(213, 193, 169, 0.595);
+    font-size: 15px
+}
+
+.user :hover{
+    background-color: rgba(177, 158, 136, 0.595);
+    cursor: pointer;
+}
+
+
+
+

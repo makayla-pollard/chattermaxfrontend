@@ -1,5 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from 'react';
+import "./PublicProfile.css"
+
 
 function PublicProfile(){
     const {id} = useParams();
@@ -38,9 +40,9 @@ function PublicProfile(){
 
     
     return(
-        <div>
-            <h1>{user.username}</h1>
+        <div className="public">
             <img src={user.picture} alt= "profile image"/> 
+            <h1>{user.username}</h1>
         </div>
     )
 }

@@ -1,8 +1,8 @@
 import { NavLink, useNavigate } from 'react-router-dom';
-import '../style/NavBarStyle.css';
 import Cookies from 'universal-cookie';
 import jwt from 'jwt-decode';
 import './NavBar.css'
+import icon from '../assets/bubbleheart.png';
 
 const NavBar = ({user}) => {
     let navigate = useNavigate();
@@ -17,7 +17,8 @@ const NavBar = ({user}) => {
         return(
             <header className="headerNav">
                 <div className="main">
-                    <div>
+                    <div className='title'>
+                        <img src={icon}></img>
                         Chattermax
                     </div>
                     <nav className='links'>
@@ -37,7 +38,8 @@ const NavBar = ({user}) => {
         return(
             <header className='headerNav'>
                 <div className="main">
-                    <div>
+                    <div className='title'>
+                        <img src={icon}></img>
                         Chattermax
                     </div>
                     <nav className="links">

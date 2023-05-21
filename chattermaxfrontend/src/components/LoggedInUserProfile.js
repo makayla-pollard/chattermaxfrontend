@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 import Cookies from 'universal-cookie';
-
+import './LoggedInUser.css'
 
 function LoggedInUserProfile({userInfo, id}){
     const cookies = new Cookies();
@@ -44,7 +44,7 @@ function LoggedInUserProfile({userInfo, id}){
     }, [])
     
     return(
-        <div>
+        <div className="profile">
             <h1>Welcome {user.username}</h1>
             <img src={user.picture} alt= "profile image"/> 
             <button onClick={logout}>Logout</button>
