@@ -53,6 +53,9 @@ const NavBar = ({user}) => {
                             <li>
                                 <NavLink to={`/my-profile/${user.username}`}>Profile</NavLink>
                             </li>
+                            <li>
+                                <div className="logout" onClick={() => logout()}>Logout</div>
+                            </li>
                         </ul>
                     </nav>
                 </div>

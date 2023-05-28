@@ -12,3 +12,37 @@
     text-align: center;
     width: 150px;
 }
+
+.block{
+    float: left;
+    border: solid rgb(182, 141, 125) 2px;
+    margin: 10px
+}
+
+.blockTitle{
+    font-size: 25px;
+    text-align: center;
+    border-bottom: solid rgb(182, 141, 125) 1px;
+    background-color: rgb(182, 141, 125);
+    color: white;
+}
+
+.list{
+    background-color: rgba(210, 165, 145, 0.595);
+    width: 200px;
+    height: 300px;
+}
+
+.list .userBlock{
+    background-color: rgba(210, 165, 145, 0.595);
+    font-size: 20px;
+    height: 30px;
+    text-align: center;
+    border-bottom: solid 1.5px rgb(182, 141, 125);
+    color: rgb(130, 92, 78);
+}
+
+.list .userBlock :hover{
+    cursor: pointer;
+    font-size: 22px;
+}

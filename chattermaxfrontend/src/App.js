@@ -11,7 +11,8 @@ import EditProfile from './components/EditProfile';
 import UserSearch from './components/UserSearch';
 import Chat from './components/Chat';
 import NavBar from './components/NavBar'
-
+import EditPhoto from './components/EditPhoto';
+import EditPassword from './components/EditPassword';
 
 function App() {
   const cookies = new Cookies();
@@ -39,6 +40,8 @@ function App() {
           <Route path='/edit-profile' element={user ? <EditProfile/> : <Navigate replace to={"/login"}/>}/>
           <Route path='/users' element={<UserSearch/>} />
           <Route path="/chat" element={<Chat/>}/>
+          <Route path="/edit-photo" element={<EditPhoto user={user}/>}/>
+          <Route path="/edit-password" element={<EditPassword/>}/>
         </Routes>
       </BrowserRouter>
     </div>

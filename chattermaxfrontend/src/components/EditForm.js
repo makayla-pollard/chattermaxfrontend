@@ -1,12 +1,14 @@
 import {useState, useEffect} from 'react';
+import Cookies from 'universal-cookie';
+import { useNavigate } from 'react-router-dom';
 
 function EditForm({userInfo}){
+    let navigate = useNavigate();
+    const cookies = new Cookies();
     const [user, setUser] = useState([])
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [confirm, setConfirm] = useState("");
-    const [picture, setPicture] = useState("");
+    
 
     const getUser = async () => {
         const res = await fetch('http://ec2-18-116-21-237.us-east-2.compute.amazonaws.com:4000/graphql', {
@@ -35,17 +37,25 @@ function EditForm({userInfo}){
             setUser(data.data.userByUsername)
             setUsername(data.data.userByUsername.username);
             setEmail(data.data.userByUsername.email);
-            setPassword(data.data.userByUsername.password);
-            setConfirm(data.data.userByUsername.password);
-            setPicture(data.data.userByUsername.picture);
         }).catch(err => {
             console.log(err);
         });
+
+        
     }
 
     useEffect(() => {
         getUser()
     }, [])
+
+    function logout(){
+        cookies.remove('jwt');
+        window.location.reload(false);
+    }
+
+    function goBack(username){
+        navigate(`/my-profile/${username}`)
+    }
 
 
     const editUser = async (e) => {
@@ -58,7 +68,7 @@ function EditForm({userInfo}){
             body: JSON.stringify({
                 query: `
                     mutation{
-                        editUser(username: "${user.username}", newUsername: "${username}",email: "${email}", oldPassword: "${user.password}", password: "${password}", passConf: "${confirm}", picture: "${picture}"){
+                        editUser(username: "${user.username}", newUsername: "${username}",email: "${email}"){
                             username
                         }
                     }
@@ -74,12 +84,23 @@ function EditForm({userInfo}){
         }).catch(err => {
             console.log(err);
         });
+        alert("profile changed! relogin!")
+        logout();
+    }
+
+    function goToEditPhoto(){
+        navigate("/edit-photo")
+    }
+
+    function goToEditPassword(){
+        navigate("/edit-password")
     }
 
 
     return(
         <div>
-            <h1>Edit Profile /does not work yet/ </h1>
+            <h2 className="backButton" onClick={() => goBack(userInfo.username)}>← Go Back</h2>
+            <h1>Edit Profile</h1>
             <form>
                 <label>New Username: </label>
                     <br/>
@@ -89,22 +110,10 @@ function EditForm({userInfo}){
                     <br/>
                     <input type="text" value={email} onChange={(e) => setEmail(e.target.value)}/>
                     <br/>
-                    <label>New Password: </label>
-                    <br/>
-                    {/* <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}/> */}
-                    <input type="password" placeholder='Password...' onChange={(e) => setPassword(e.target.value)}/>
-                    <br/>
-                    <label>Confirm Password: </label>
-                    <br/>
-                    {/* <input type="password" value={confirm} onChange={(e) => setConfirm(e.target.value)}/> */}
-                    <input type="password" placeholder='Confirm Password...' onChange={(e) => setConfirm(e.target.value)}/>
-                    <br/>
-                    <div>
-                        Change Profile Picture here
-                    </div>
-                    <br/>
                     <button onClick={(e) => editUser(e)}>Submit</button>
             </form>
+            <button onClick={() => goToEditPhoto()}>Edit Profile Photo</button>
+            <button onClick={() => goToEditPassword()}>Edit Password</button>
         </div>
     )
 }
