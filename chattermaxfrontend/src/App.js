@@ -13,6 +13,7 @@ import Chat from './components/Chat';
 import NavBar from './components/NavBar'
 import EditPhoto from './components/EditPhoto';
 import EditPassword from './components/EditPassword';
+import Home from './components/Home';
 
 function App() {
   const cookies = new Cookies();
@@ -33,7 +34,8 @@ function App() {
       <BrowserRouter>
       <NavBar user={user}/>
         <Routes>
-          <Route path='/' element={<Register/>}/>
+          <Route path='/' element={<Home/>}/>
+          <Route path='/register' element={<Register/>}/>
           <Route path="/login" element={user ? <Navigate replace to={`/my-profile/${user.username}`}/> : <Login/>}/>
           <Route path="/my-profile/:id" element={user? <Profile/>: <Navigate replace to={"/login"}/> } />
           <Route path="/profile/:id" element={<PublicProfile/>}/>

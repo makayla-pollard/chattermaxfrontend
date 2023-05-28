@@ -1,0 +1,19 @@
+.homeContainer{
+    margin: 100px;
+    padding: 30px;
+    /* border: 5px solid black; */
+    text-align: center;
+}
+
+h1{
+    font-size: 40px;
+}
+
+.text{
+    font-size: 20px;
+}
+
+.chattermax{
+    padding: 10px;
+    margin: 10px;
+}

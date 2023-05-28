@@ -19,12 +19,12 @@ const NavBar = ({user}) => {
                 <div className="main">
                     <div className='title'>
                         <img src={icon}></img>
-                        Chattermax
+                        <NavLink to='/'>Chattermax</NavLink>
                     </div>
                     <nav className='links'>
                             <ul>
                                 <li>
-                                    <NavLink to="/">Register</NavLink>
+                                    <NavLink to="/register">Register</NavLink>
                                 </li>
                                 <li>
                                     <NavLink to="/login">Login</NavLink>
