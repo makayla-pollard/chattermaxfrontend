@@ -1,5 +1,6 @@
 .homeContainer{
     margin: 100px;
+    margin-top: 0px;
     padding: 30px;
     /* border: 5px solid black; */
     text-align: center;
@@ -16,4 +17,13 @@ h1{
 .chattermax{
     padding: 10px;
     margin: 10px;
+}
+
+.homeContainer img{
+    height: 300px;
+}
+
+h3{
+    font-size: 30px;
+    margin: 0px;
 }
